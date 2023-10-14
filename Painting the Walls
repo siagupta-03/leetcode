@@ -1,0 +1,20 @@
+class Solution {
+    public int paintWalls(int[] cost, int[] time) {
+        int dp[][]= new int [cost.length+1][cost.length+1];
+        for(int row[]: dp){
+            Arrays.fill(row, -1);
+        }
+        return f(0, cost.length , cost , time , dp);
+    }
+    public int f(int idx, int remain  , int cost[] , int time[], int dp[][] ){
+        if(remain<=0 )return 0;
+        if(idx==cost.length)return (int) 1e9;
+        if(dp[idx][remain]!=-1)return dp[idx][remain];
+        int paint = cost[idx]+f(idx+1 , remain-1-time[idx] , cost , time , dp);
+        int dont= f(idx+1, remain , cost , time , dp);
+        dp[idx][remain]= Math.min(paint , dont );
+        return dp[idx][remain];
+
+
+    }
+}
