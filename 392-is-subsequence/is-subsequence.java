@@ -5,6 +5,7 @@ class Solution {
         for(int row[]: dp){
             Arrays.fill(row, -1);
         }
+        // ans ie the number of common subsequnece should be equal to complete string s
         if(f(s.length()-1 , t.length()-1, s, t, dp)== s.length()){
         return true;}
         return false;
