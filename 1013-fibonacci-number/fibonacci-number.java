@@ -1,6 +1,6 @@
 class Solution {
     public int fib(int n) {
-        
+        //top down approach ---momoizations
         int dp[]= new int[n+1];
         Arrays.fill(dp ,-1);
         if(n<=1){
